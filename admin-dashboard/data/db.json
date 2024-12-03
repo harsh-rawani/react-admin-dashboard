@@ -28,7 +28,8 @@
       "name": "Varun Sing",
       "username": "varun-singh",
       "email": "harshrawani055@gmail.com",
-      "password": "harsh1001"
+      "password": "harsh1001",
+      "id": "3168"
     },
     {
       "id": "f1f4",
@@ -36,6 +37,34 @@
       "username": "viv-jha",
       "email": "viv2001@gmail.com",
       "password": "viv-jha2001"
+    },
+    {
+      "id": "3187",
+      "name": "rawani",
+      "username": "raw977",
+      "email": "harshrawani055@gmail.com",
+      "password": "rawa97744"
+    },
+    {
+      "id": "dfd3",
+      "name": "rawani",
+      "username": "raw977",
+      "email": "harshrawani055@gmail.com",
+      "password": "rawa97744"
+    },
+    {
+      "id": "567c",
+      "name": "rawani",
+      "username": "raw977",
+      "email": "harshrawani055@gmail.com",
+      "password": "rawa97744"
+    },
+    {
+      "id": "49fe",
+      "name": "rawani",
+      "username": "raw977",
+      "email": "harshrawani055@gmail.com",
+      "password": "rawa97744"
     }
   ]
 }
