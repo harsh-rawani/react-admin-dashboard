@@ -1,44 +1,31 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import React, { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
+const Login = () => {
+  const navigate = useNavigate()
+  const [token, setToken] = useState(()=>{
+    return  localStorage.getItem('token')
+  })
+  const onSuccess = (credentialResponse)=>{
 
-function Login() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
-    useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+      localStorage.setItem('token',credentialResponse.credential)
+      const isUser = localStorage.getItem('token')
+      console.log(isUser);
+      setToken(isUser)
+      if(isUser){
+        console.log('user logged In');
+      }
+      console.log(credentialResponse,"success fully logged in")
+    navigate('/dashboard')
   }
 
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
-
-  if (isAuthenticated) {
-    return (
-      <div>
-        Hello {user.name}{' '}
-        <button
-          onClick={() =>
-            logout({ logoutParams: { returnTo: window.location.origin } })
-          }
-        >
-          Log out
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <button
-        onClick={() =>
-          loginWithRedirect({
-            connection: 'google-oauth2',
-          })
-        }
-      >
-        Login with Google
-      </button>
-    );
-  }
+  return(
+    <GoogleLogin
+    onSuccess={onSuccess}
+    onError={() => {
+      console.log('Login Failed')
+    }}/>
+  )
 }
 
-export default Login;
+export default Login
